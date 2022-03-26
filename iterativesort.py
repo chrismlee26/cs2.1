@@ -19,8 +19,11 @@ def bubble_sort(items):
 
 
 items = [3, 1, 7, 0]
+print("---#2 Bubble Sort---")
+print("Initial values:", items)
 bubble_sort(items)
-print(items)
+print("Sorted values:", items)
+print("------")
 
 
 def selection_sort(items):
