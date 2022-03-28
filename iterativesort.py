@@ -59,4 +59,18 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
-    pass
+    for i in range(1, len(items)):
+        key = items[i]
+        j = i-1
+        while j >= 0 and key < items[j]:
+            items[j+1] = items[j]
+            j -= 1
+        items[j+1] = key
+
+
+is_items = [4, 1, 52, 13, 7]
+print("---#4 Insertion Sort---")
+print("Initial values:", is_items)
+insertion_sort(is_items)
+print("Sorted values:", is_items)
+print("------")
