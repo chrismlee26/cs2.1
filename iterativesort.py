@@ -12,7 +12,7 @@ def bubble_sort(items):
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Repeat until all items are in sorted order
     # TODO: Swap adjacent items that are out of order
-    for i in range(len(items)):  # outer loop
+    for _ in range(len(items)):  # outer loop
         for j in range(len(items) - 1):  # inner loop, compare integers
             if items[j] > items[j+1]:
                 items[j], items[j+1] = items[j+1], items[j]
@@ -34,6 +34,7 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
+    pass
 
 
 def insertion_sort(items):
@@ -44,3 +45,4 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
+    pass
