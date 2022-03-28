@@ -3,6 +3,26 @@ def is_sorted(items):
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Check that all adjacent items are in order, return early if so
+    nums = 0
+    i = 1
+    while i < len(items):
+        if(items[i] < items[i-1]):
+            nums = 1
+        i += 1
+    if (not nums):
+        return True
+    else:
+        return False
+
+
+unsorted_items = [35, 11, 7, 0]
+sorted_items = [1, 2, 4, 6]
+print("---#1 Check Sorted---")
+is_sorted(unsorted_items)
+print("Unsorted Items:", unsorted_items, is_sorted(unsorted_items))
+is_sorted(sorted_items)
+print("Sorted Items:", sorted_items, is_sorted(sorted_items))
+print("------")
 
 
 def bubble_sort(items):
