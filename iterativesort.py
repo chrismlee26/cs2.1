@@ -8,7 +8,7 @@ def is_sorted(items):
 def bubble_sort(items):
     """Sort given items by swapping adjacent items that are out of order, and
     repeating until all items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
+    TODO: Running time: ??? Why and under what conditions? N^2
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Repeat until all items are in sorted order
     # TODO: Swap adjacent items that are out of order
@@ -29,12 +29,26 @@ print("------")
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
     unsorted item, and repeating until all items are in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
+    TODO: Running time: ??? Why and under what conditions? --- O(n^2)
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
-    pass
+
+    for i in range(len(items)):
+        lowest_num = i
+        for j in range(i+1, len(items)):
+            if items[lowest_num] > items[j]:
+                lowest_num = j
+        items[i], items[lowest_num] = items[lowest_num], items[i]
+
+
+ss_items = [99, 12, 4, 55, 9]
+print("---#3 Seletion Sort---")
+print("Initial values:", ss_items)
+selection_sort(ss_items)
+print("Sorted values:", ss_items)
+print("------")
 
 
 def insertion_sort(items):
