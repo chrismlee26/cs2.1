@@ -54,22 +54,31 @@ def gcd(a, b):
     else: 
         return gcd(b, x)
 
-print(gcd(15, 9))
-print(gcd(13, 8))
 
-# 3.2 Use your algorithm to find gcd(15, 9). Enter the value below:
 
-# 3.3 Now find gcd(13, 8). Enter the value below:
+# 3.2 Use your algorithm to find gcd(15, 9). Enter the value below: 3
+# print(gcd(15, 9))
+
+# 3.3 Now find gcd(13, 8). Enter the value below: 1
+# print(gcd(13, 8))
 
 # Q4
-# def m(a, b):
-#    if a < b:
-#      return a
-#    else:
-#      return m(a - b, b)
+def m(a, b):
+    if a < b:
+        return a
+    else:
+        return m(a - b, b)
 
-# Find m(3, 5). 
+# Find m(3, 5).
+print(m(3, 5))
 # Find m(7, 5). 
+print(m(7, 5))
 # Find m(14, 5). 
+print(m(14, 5))
 # Try some more!
-# Question: What does m do?
+# Question: What does m do? It performs a modulus function on a % b
+
+print (3%5, "~~~~")
+print (4%5, "~~~~")
+print (5%5, "~~~~")
+print (6%5, "~~~~")
