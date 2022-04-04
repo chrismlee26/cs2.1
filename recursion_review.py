@@ -16,27 +16,46 @@ def power(b, n):
         return 1
     # run b*b, n-1 times
     else:
-        # because return b * recursive power, use n-1 
+        # because n == 0 returns 1, n-1 as this is where it stops recursion.
         return b * power(b, n-1)
 
-print(power(2,3))
+# print(power(2,3))
 
 
 # Q2
-# def double(n):
-#      if n == 0:
-#           return 1
-#      else:
-#           return double(n - 1) + double(n - 1)
+def double(n):
+    if n == 0:
+        return 1
+    else:
+        return double(n - 1) + double(n - 1)
 
-# 2.1 What is the value returned when calling double(3)?
+# print(double(17), "2^n")
 
-# 2.2 What does this function do?
+# 2.1 What is the value returned when calling double(3)? 8
+
+# 2.2 What does this function do? 
 
 # 2.3 Can you modify the definition of double so that it computes the same result with a single recursive call?
+def double2(n):
+    if n == 0:
+        return 1
+    else:
+        return 2* double2(n - 1)
+
+# print(double2(17), "~~")
 
 # Q3
 # 3.1 Can you find the greatest common denominator of two integers using recursion? Paste your working algorithm below:
+
+def gcd(a, b):
+    x = a % b
+    if (x == 0):
+        return b
+    else: 
+        return gcd(b, x)
+
+print(gcd(15, 9))
+print(gcd(13, 8))
 
 # 3.2 Use your algorithm to find gcd(15, 9). Enter the value below:
 
