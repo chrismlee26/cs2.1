@@ -1,6 +1,7 @@
 # Q1 
 # The function power should compute the value of b^n, where n is any non-negative integer. 
 # Fill in the blanks below, so that power behaves correctly.
+# Hint: How does knowing the value of 39 help you find the value of 310?
 
 # def power(b, n):
 #     if n == __________:
@@ -8,6 +9,17 @@
 #     else:
 #         return __________ * power(__________, __________)
 
+
+def power(b, n):
+    # base condition
+    if n == 0:
+        return 1
+    # run b*b, n-1 times
+    else:
+        # because return b * recursive power, use n-1 
+        return b * power(b, n-1)
+
+print(power(2,3))
 
 
 # Q2
