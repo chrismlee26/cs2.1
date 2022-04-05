@@ -54,3 +54,12 @@ def quick_sort(items, low=None, high=None):
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
     # TODO: Sort each sublist range by recursively calling quick sort
+    if len(items) <= 1:
+      return items
+    else:
+      pivot = items[int(len(items) / 2)]
+      print(pivot)
+
+
+qs_items = [12, 2, 6, 11, 55, 99, 5, 25, 89]
+print(quick_sort(qs_items), "~~~")
