@@ -7,6 +7,10 @@ def merge(items1, items2):
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
 
+merge1 = [0, 1, 2, 3, 4]
+merge2 = [5, 6, 7, 8, 9]
+
+print(merge(merge1, merge2))
 
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
@@ -18,6 +22,10 @@ def split_sort_merge(items):
     # TODO: Sort each half using any other sorting algorithm
     # TODO: Merge sorted halves into one list in sorted order
 
+ss_merge1 = [5, 4, 1, 7, 8]
+ss_merge2 = [2, 9, 6, 3, 0]
+
+
 
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
@@ -28,7 +36,19 @@ def merge_sort(items):
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
-
+    # output = output array (n)
+    # k = len(items) <-- index
+    # x = items/2 [arr]
+    # y = items/2 [arr]
+    # i = 1 <-- (x index operator)
+    # j = 1 <-- (y index operator)
+    # for k == len(items):
+    #   if x[i] < y[j]:
+    #     output[k] = X[i]
+    #     i += 1
+    #   else: y[j] < x[i]:
+    #     output[k] = y[j]
+    #     j += 1
 
 def partition(items, low, high):
     """Return index `p` after in-place partitioning given items in range
@@ -47,9 +67,9 @@ def partition(items, low, high):
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
     around a pivot item and recursively sorting each remaining sublist range.
-    TODO: Best case running time: ??? Why and under what conditions?
-    TODO: Worst case running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Best case running time: ??? Why and under what conditions? O(n log n)
+    TODO: Worst case running time: ??? Why and under what conditions? O(n^2)
+    TODO: Memory usage: ??? Why and under what conditions? O(n)""" 
     # TODO: Check if high and low range bounds have default values (not given)
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
@@ -57,9 +77,13 @@ def quick_sort(items, low=None, high=None):
     if len(items) <= 1:
       return items
     else:
-      pivot = items[int(len(items) / 2)]
-      print(pivot)
+      pivot = items[int(len(items) // 2)]
+      # print(pivot)
+      # if (pivot > items):
+      # while pivot > low and 
+
+
 
 
 qs_items = [12, 2, 6, 11, 55, 99, 5, 25, 89]
-print(quick_sort(qs_items), "~~~")
+# print(quick_sort(qs_items), "~~~")
