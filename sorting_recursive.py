@@ -18,14 +18,13 @@ def merge(items1, items2):
         else:
             items_list.append(items2[j])
             j += 1
-    items_list = items_list + items1[i:] + items2[j:]
+    items_list += items1[i:] + items2[j:]
     return items_list
 
 merge1 = [0, 1, 2, 3, 4]
 merge2 = [5, 6, 7, 8, 9]
 
-print(merge(merge1, merge2))
-
+# print(merge(merge1, merge2))
 
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
@@ -37,9 +36,26 @@ def split_sort_merge(items):
     # TODO: Sort each half using any other sorting algorithm
     # TODO: Merge sorted halves into one list in sorted order
 
+    left, right = [], []
+    i, j = 0, 0
+    if len(items) <= 1: 
+        return items
+    else:
+        # count index and split /2 
+        # left = 1st half index
+        # right = 2nd half index
 
-ss_merge1 = [5, 4, 1, 7, 8]
-ss_merge2 = [2, 9, 6, 3, 0]
+        # perform iterative sort algorithm on left 
+            # return left
+        # perform iterative sort algorithm on right
+            # return right
+
+        # merge sorted halves
+        pass
+
+
+ss_merge_test = [2, 9, 6, 3, 0, 5, 4, 1, 7, 8]
+print(split_sort_merge(ss_merge_test))
 
 
 def merge_sort(items):
