@@ -38,15 +38,21 @@ def split_sort_merge(items):
 
     left, right = [], []
     i, j = 0, 0
+
     if len(items) <= 1: 
         return items
     else:
         # count index and split /2 
-        # left = 1st half index
-        # right = 2nd half index
+        # i = 1st half index
+        # j = 2nd half index
 
+        # if ?
+        # use i index to append items to left arr
         # perform iterative sort algorithm on left 
             # return left
+        
+        # if ?
+        # use j index to append items to right arr
         # perform iterative sort algorithm on right
             # return right
 
