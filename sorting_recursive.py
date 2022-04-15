@@ -61,7 +61,7 @@ def split_sort_merge(items):
 
 
 ss_merge_test = [2, 9, 6, 3, 0, 5, 4, 1, 7, 8]
-print(split_sort_merge(ss_merge_test))
+# print(split_sort_merge(ss_merge_test))
 
 
 def merge_sort(items):
@@ -102,15 +102,21 @@ def partition(items, low, high):
     # TODO: Move items less than pivot into front of range [low...p-1]
     # TODO: Move items greater than pivot into back of range [p+1...high]
     # TODO: Move pivot item into final position [p] and return index p
-    pivot = items[high]
+    pivot = (items[high])
     i = low - 1
 
     for j in range(low, high):
         if items[j] <= pivot:
-            i = i + 1
+            i += 1
             items[i], items[j] = items[high], items[i+1]
     return i + 1
 
+    # for i in range(low, high):
+    #     if items[i] <= items[high]:
+    #         items[i], items[low] = items[high], items[i]
+    #         low += 1
+    # items[high], items[low] = items[low], items[high]
+    # return low
 
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
@@ -122,4 +128,20 @@ def quick_sort(items, low=None, high=None):
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
     # TODO: Sort each sublist range by recursively calling quick sort
-    pass
+
+    if low < high:
+        pivot_item  = partition(items, low, high)
+
+        quick_sort(items, low, pivot_item -1)
+        quick_sort(items, low, pivot_item +1, high)
+    return quick_sort(qs_items)
+
+qs_items = [12, 2, 6, 11, 55, 99, 5, 25, 89]
+
+# print(partition(qs_items, 0, len(qs_items)-1))
+
+# print("Unsorted Array:", qs_items) 
+print(quick_sort(qs_items, 0, len(qs_items)-1))
+print("Sorted Array:", qs_items)
+
+
