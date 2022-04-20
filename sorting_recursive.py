@@ -88,6 +88,11 @@ def merge_sort(items):
     #   else: y[j] < x[i]:
     #     output[k] = y[j]
     #     j += 1
+    if len(items) > 1:
+        mid = len(items) // 2 
+        left = items[:mid]
+        right = items[mid:]
+        pass
 
 
 def partition(items, low, high):
