@@ -60,7 +60,7 @@ def split_sort_merge(items):
         pass
 
 
-ss_merge_test = [2, 9, 6, 3, 0, 5, 4, 1, 7, 8]
+# ss_merge_test = [2, 9, 6, 3, 0, 5, 4, 1, 7, 8]
 # print(split_sort_merge(ss_merge_test))
 
 
@@ -69,30 +69,32 @@ def merge_sort(items):
     sorting each recursively, and merging results into a list in sorted order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Check if list is so small it's already sorted (base case)
-    # TODO: Split items list into approximately equal halves
-    # TODO: Sort each half by recursively calling merge sort
+    
+    
+    
     # TODO: Merge sorted halves into one list in sorted order
 
-    # output = output array (n)
-    # k = len(items) <-- index
-    # left = items/2 [arr]
-    # right = items/2 [arr]
-    # i = 1 <-- (x index operator)
-    # j = 1 <-- (y index operator)
-
-    # for k == len(items):
-    #   if x[i] < y[j]:
-    #     output[k] = X[i]
-    #     i += 1
-    #   else: y[j] < x[i]:
-    #     output[k] = y[j]
-    #     j += 1
-    if len(items) > 1:
-        mid = len(items) // 2 
-        left = items[:mid]
+    if len(items) > 1: # TODO: Check if list is so small it's already sorted (base case)
+        mid = len(items) // 2 # TODO: Split items list into approximately equal halves
+        left = items[:mid] 
         right = items[mid:]
-        pass
+
+        i, j = 0
+
+        # merge_sort(left) # TODO: Sort each half by recursively calling merge sort
+        # merge_sort(right)
+
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+        #     output[k] = X[i]
+        #     i += 1
+        #   else: y[j] < x[i]:
+        #     output[k] = y[j]
+        #     j += 1
+
+                pass
+            pass
+    pass
 
 
 def partition(items, low, high):
