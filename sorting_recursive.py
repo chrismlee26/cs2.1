@@ -112,10 +112,10 @@ def merge_sort(items):
         return items[i]
 
 merge_sort_items = [12, 2, 6, 11, 55, 99, 5, 25, 89]
-print("~~~~~~~~~merge sort~~~~~~~~")
-print("Pre-Sorted: ", merge_sort_items, "\n")
-merge_sort(merge_sort_items)
-print("Sorted: ", merge_sort_items)
+# print("~~~~~~~~~merge sort~~~~~~~~")
+# print("Pre-Sorted: ", merge_sort_items, "\n")
+# merge_sort(merge_sort_items)
+# print("Sorted: ", merge_sort_items)
 
 
 
@@ -126,26 +126,29 @@ def partition(items, low, high):
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Choose a pivot any way and document your method in docstring above
-    # TODO: Loop through all items in range [low...high]
-    # TODO: Move items less than pivot into front of range [low...p-1]
-    # TODO: Move items greater than pivot into back of range [p+1...high]
-    # TODO: Move pivot item into final position [p] and return index p
+    # # TODO: Choose a pivot any way and document your method in docstring above
+    # pivot = items[high]
+    # # TODO: Loop through all items in range [low...high]
+    # for i in range(low, high):
+    # # TODO: Move items less than pivot into front of range [low...p-1]
+    #     if items[i] < pivot:
+    # # TODO: Move items greater than pivot into back of range [p+1...high]
+    #         items[i], items[low] = items[low], items[i]
+    # # TODO: Move pivot item into final position [p] and return index p
+    #         items[high] = items[low]
+    #         items[low] = pivot
+    #         return low
+
     pivot = items[high]
     i = low - 1
 
     for j in range(low, high):
         if items[j] <= pivot:
             i += 1
-            items[i], items[j] = items[high], items[i+1]
-    return i + 1
+            items[i], items[j] = items[j], items[i]
+    items[i + 1], items[high] = items[high], items[i + 1]
 
-    # for i in range(low, high):
-    #     if items[i] <= items[high]:
-    #         items[i], items[low] = items[high], items[i]
-    #         low += 1
-    # items[high], items[low] = items[low], items[high]
-    # return low
+    return i + 1
 
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
@@ -153,23 +156,38 @@ def quick_sort(items, low=None, high=None):
     TODO: Best case running time: ??? Why and under what conditions? O(n log n)
     TODO: Worst case running time: ??? Why and under what conditions? O(n^2)
     TODO: Memory usage: ??? Why and under what conditions? O(n)"""
-
     # TODO: Check if high and low range bounds have default values (not given)
-    # TODO: Check if list or range is so small it's already sorted (base case)
 
-    # TODO: Partition items in-place around a pivot and get index of pivot
-    if low < high:
-        pivot_item  = partition(items, low, high)
-    # TODO: Sort each sublist range by recursively calling quick sort
-        quick_sort(items, low, pivot_item - 1)
-        quick_sort(items, low, pivot_item + 1, high)
-    return quick_sort(qs_items)
+    while high == len(items)-1 and low == 0:
+        # TODO: Check if list or range is so small it's already sorted (base case)
+        if len(items) > 1:
+            # TODO: Partition items in-place around a pivot and get index of pivot
+            if low < high:
+                pivot_item  = partition(items, low, high)
+                # TODO: Sort each sublist range by recursively calling quick sort
+                quick_sort(items, low, pivot_item - 1)
+                quick_sort(items, low, pivot_item + 1, high)
+            return quick_sort(qs_items)
+
+    # if low is None:
+    #     low = 0
+    # if high is None:
+    #     high = len(items) - 1
+        
+    # if high - low <= 0:
+    #     return items
+    # else:
+    #     pivot = partition(items, low, high)
+    #     quick_sort(items, low, pivot - 1)
+    #     quick_sort(items, pivot + 1, high)
+    #     return items
+
 
 qs_items = [12, 2, 6, 11, 55, 99, 5, 25, 89]
-# print(partition(qs_items, 0, len(qs_items)-1))
+print(partition(qs_items, 0, qs_items[-1]))
 
 # print("Unsorted Array:", qs_items) 
-# print(quick_sort(qs_items, 0, len(qs_items)-1))
+# quick_sort(qs_items)
 # print("Sorted Array:", qs_items)
 
 
