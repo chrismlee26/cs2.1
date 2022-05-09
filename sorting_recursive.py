@@ -78,27 +78,44 @@ def merge_sort(items):
         left = items[:mid] 
         right = items[mid:]
 
-        i, j = 0
+        # instantiate indexes 
+        i = 0 # Left
+        j = 0 # Right
+        k = 0 # Merged
 
         # TODO: Sort each half by recursively calling merge sort
         merge_sort(left) 
         merge_sort(right)
 
+        # Sorting 
         while i < len(left) and j < len(right):
             if left[i] < right[j]:
-        #     output[k] = X[i]
-        #     i += 1
-        #   else: y[j] < x[i]:
-        #     output[k] = y[j]
-        #     j += 1
+                items[k] = left[i]
+                i += 1
+            else: 
+                items[k] = right[j]
+                j += 1
+            k += 1
+
+        # TODO: Merge sorted halves into one list (using index k) in sorted order
+        while i < len(left):
+            items[k] = left[i]
+            i += 1
+            k += 1
         
-        # TODO: Merge sorted halves into one list in sorted order
-                pass
-            pass
-    pass
+        while j < len(right):
+            items[k] = right[j]
+            j += 1
+            k += 1
+
+    for i in range(len(items)):
+        return items[i]
 
 merge_sort_items = [12, 2, 6, 11, 55, 99, 5, 25, 89]
-print(merge_sort(merge_sort_items))
+print("~~~~~~~~~merge sort~~~~~~~~")
+print("Pre-Sorted: ", merge_sort_items, "\n")
+merge_sort(merge_sort_items)
+print("Sorted: ", merge_sort_items)
 
 
 
