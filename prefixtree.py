@@ -36,14 +36,28 @@ class PrefixTree:
     def is_empty(self):
         """Return True if this prefix tree is empty (contains no strings)."""
         # TODO
+        if self.size == 0:
+            return True
+        else:
+            return False
 
     def contains(self, string):
         """Return True if this prefix tree contains the given string."""
         # TODO
+        # starting at root
+        # loop letters
+            # if has_child with letter
+                # return True
 
     def insert(self, string):
         """Insert the given string into this prefix tree."""
         # TODO
+        # starting at root node
+        # split word into letters
+            # for each letter not in trie, create new node
+        # iterate through letters[index]
+        # when complete call terminal
+
 
     def _find_node(self, string):
         """Return a pair containing the deepest node in this prefix tree that
@@ -56,6 +70,9 @@ class PrefixTree:
         # Start with the root node
         node = self.root
         # TODO
+        # loop through string
+            # if node.has_child(string[index])
+                # node = node.get_child(string[index])
 
     def complete(self, prefix):
         """Return a list of all strings stored in this prefix tree that start
@@ -63,19 +80,25 @@ class PrefixTree:
         # Create a list of completions in prefix tree
         completions = []
         # TODO
+        # Isn't this traverse? :S
 
     def strings(self):
         """Return a list of all strings stored in this prefix tree."""
         # Create a list of all strings in prefix tree
         all_strings = []
         # TODO
+        # Isn't this also traverse? :S
 
     def _traverse(self, node, prefix, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node with the given prefix representing its path in
         this prefix tree and visit each node with the given visit function."""
         # TODO
-
+        # If node.terminal
+            # append(prefix)
+        # for each child in node.children
+            # traverse(child, prefix + child.character, visit)
+            # return visit
 
 def create_prefix_tree(strings):
     print(f'strings: {strings}')

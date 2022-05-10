@@ -9,30 +9,35 @@ class PrefixTreeNode:
 
     # Choose an appropriate type of data structure to store children nodes in
     # Hint: Choosing list or dict affects implementation of all child methods
-    CHILDREN_TYPE = list  # or dict
+    CHILDREN_TYPE = {} # list or dict
 
     def __init__(self, character=None):
         """Initialize this prefix tree node with the given character value, an
         empty structure of children nodes, and a boolean terminal property."""
         # Character that this node represents
         self.character = character
-        # Data structure to associate character keys to children node values
-        self.children = PrefixTreeNode.CHILDREN_TYPE()
         # Marks if this node terminates a string in the prefix tree
         self.terminal = False
+        # Data structure to associate character keys to children node values
+        self.children = PrefixTreeNode.CHILDREN_TYPE()
+
 
     def is_terminal(self):
         """Return True if this prefix tree node terminates a string."""
         # TODO: Determine if this node is terminal
+        # This becomes True if this node is terminal & ends input
+
 
     def num_children(self):
         """Return the number of children nodes this prefix tree node has."""
         # TODO: Determine how many children this node has
+        
 
     def has_child(self, character):
         """Return True if this prefix tree node has a child node that
         represents the given character amongst its children."""
         # TODO: Check if given character is amongst this node's children
+
 
     def get_child(self, character):
         """Return this prefix tree node's child node that represents the given
