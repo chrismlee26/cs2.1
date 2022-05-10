@@ -53,11 +53,18 @@ class PrefixTree:
         """Insert the given string into this prefix tree."""
         # TODO
         # starting at root node
+        current = self.root
         # split word into letters
-            # for each letter not in trie, create new node
-        # iterate through letters[index]
-        # when complete call terminal
-
+        for letter in string:
+            if current.has_child(letter) == False:
+                # for each letter not in trie, create new node
+                create_node = PrefixTreeNode(letter)
+                current.add_child(letter, create_node)
+                # iterate through letters[index]
+                self.size += 1
+            current = current.get_child[letter]
+            # when complete call terminal
+        current.terminal = True
 
     def _find_node(self, string):
         """Return a pair containing the deepest node in this prefix tree that
