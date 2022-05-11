@@ -83,18 +83,20 @@ class PrefixTree:
             return self.root, 0
         # Start with the root node
         node = self.root
+        
         # TODO
-        # Instantiate depth
-        depth = 0
+        depth = 0 # Instantiate depth
         # Loop string and depth counts node.children
+
         for character in string:
             if character in node.children:
                 node = node.children[character]
                 depth += 1
             else:
-                return None, None
+                # Return deepest node that matches longest prefix of string and its depth
+                return [], 0
         # Return node and depth
-        return (node, depth)
+        return node, depth
 
     def complete(self, prefix):
         """Return a list of all strings stored in this prefix tree that start
@@ -102,13 +104,20 @@ class PrefixTree:
         # Create a list of completions in prefix tree
         completions = []
         # TODO
-        # Isn't this traverse? :S
+        # return list of all strings in prefix tree that start with prefix
+        node, depth = self._find_node(prefix)
+        if depth == 0:
+            return []
+        else:
+            return self._traverse(node, prefix, completions)
+        
 
     def strings(self):
         """Return a list of all strings stored in this prefix tree."""
-        # Create a list of all strings in prefix tree
         all_strings = []
-        # TODO
+        # Create a list of all strings in prefix tree
+        self._traverse_strings(self.root, '', all_strings)
+        return all_strings
 
     def _traverse(self, node, prefix, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
