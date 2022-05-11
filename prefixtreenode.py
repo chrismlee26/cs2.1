@@ -21,23 +21,32 @@ class PrefixTreeNode:
         # Data structure to associate character keys to children node values
         self.children = PrefixTreeNode.CHILDREN_TYPE()
 
-
     def is_terminal(self):
         """Return True if this prefix tree node terminates a string."""
         # TODO: Determine if this node is terminal
-        # This becomes True if this node is terminal & ends input
-
+        if self.terminal == True:
+            return True
+        else:
+            return False
 
     def num_children(self):
         """Return the number of children nodes this prefix tree node has."""
         # TODO: Determine how many children this node has
-        
+        number = 0
+        # 
+        for _ in self.children.keys():
+            number += 1
+        return number
 
     def has_child(self, character):
         """Return True if this prefix tree node has a child node that
         represents the given character amongst its children."""
         # TODO: Check if given character is amongst this node's children
-
+        for key in self.children.keys():
+            if key == character:
+                return True
+            else:
+                return False
 
     def get_child(self, character):
         """Return this prefix tree node's child node that represents the given
