@@ -33,7 +33,6 @@ class PrefixTreeNode:
         """Return the number of children nodes this prefix tree node has."""
         # TODO: Determine how many children this node has
         number = 0
-        # 
         for _ in self.children.keys():
             number += 1
         return number
@@ -53,7 +52,9 @@ class PrefixTreeNode:
         character if it is amongst its children, or raise ValueError if not."""
         # TODO: Find child node for given character in this node's children
         if self.has_child(character):
+            # This is a bool object 
             for key in self.has_child(character):
+
                 if key == character:
                     return self.children[key]
         else:

@@ -103,30 +103,30 @@ class PrefixTree:
         with the given prefix string."""
         # Create a list of completions in prefix tree
         completions = []
+
         # TODO
         # return list of all strings in prefix tree that start with prefix
-        node, depth = self._find_node(prefix)
-        if depth == 0:
-            return []
-        else:
+        node, _ = self._find_node(prefix)
+        if node:
             return self._traverse(node, prefix, completions)
-        
+        else:
+            return completions
 
     def strings(self):
         """Return a list of all strings stored in this prefix tree."""
         all_strings = []
         # Create a list of all strings in prefix tree
-        self._traverse_strings(self.root, '', all_strings)
         return all_strings
+
 
     def _traverse(self, node, prefix, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node with the given prefix representing its path in
         this prefix tree and visit each node with the given visit function."""
         # TODO
-        if node.terminal:
+        if node.terminal == False:
             visit.append(prefix)
-        
+
         for key in node.children:
             self._traverse(node.children[key], prefix + key, visit)
         return visit
@@ -180,7 +180,7 @@ def main():
     # Create a dictionary of tongue-twisters with similar words to test with
     tongue_twisters = {
         'Seashells': 'Shelly sells seashells by the sea shore'.split(),
-        # 'Peppers': 'Peter Piper picked a peck of pickled peppers'.split(),
+        'Peppers': 'Peter Piper picked a peck of pickled peppers'.split(),
         # 'Woodchuck': ('How much wood would a wood chuck chuck'
         #                ' if a wood chuck could chuck wood').split()
     }
