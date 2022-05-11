@@ -44,10 +44,18 @@ class PrefixTree:
     def contains(self, string):
         """Return True if this prefix tree contains the given string."""
         # TODO
-        # starting at root
-        # loop letters
-            # if has_child with letter
-                # return True
+        current = self.root
+
+        for letter in string:
+            if current.has_child(letter):
+                return False
+            else:
+                current = current.get_child[letter]
+        
+        if current.terminal == True:
+            return True
+        else:
+            return False
 
     def insert(self, string):
         """Insert the given string into this prefix tree."""
@@ -77,13 +85,16 @@ class PrefixTree:
         # Start with the root node
         node = self.root
         # TODO
+        # Instantiate depth
         depth = 0
+        # Loop string and depth counts node.children
         for letter in string:
             if letter in node.children:
                 node = node.children[letter]
                 depth += 1
             else:
                 return None, None
+        # Return node and depth
         return (node, depth)
 
     def complete(self, prefix):
@@ -99,18 +110,18 @@ class PrefixTree:
         # Create a list of all strings in prefix tree
         all_strings = []
         # TODO
-        # Isn't this also traverse? :S
 
     def _traverse(self, node, prefix, visit):
         """Traverse this prefix tree with recursive depth-first traversal.
         Start at the given node with the given prefix representing its path in
         this prefix tree and visit each node with the given visit function."""
         # TODO
-        # If node.terminal
-            # append(prefix)
-        # for each child in node.children
-            # traverse(child, prefix + child.character, visit)
-            # return visit
+        if node.terminal:
+            visit.append(prefix)
+        
+        for key in node.children:
+            self._traverse(node.children[key], prefix + key, visit)
+        return visit
 
 def create_prefix_tree(strings):
     print(f'strings: {strings}')
