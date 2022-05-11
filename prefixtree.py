@@ -77,9 +77,14 @@ class PrefixTree:
         # Start with the root node
         node = self.root
         # TODO
-        # loop through string
-            # if node.has_child(string[index])
-                # node = node.get_child(string[index])
+        depth = 0
+        for letter in string:
+            if letter in node.children:
+                node = node.children[letter]
+                depth += 1
+            else:
+                return None, None
+        return (node, depth)
 
     def complete(self, prefix):
         """Return a list of all strings stored in this prefix tree that start
