@@ -46,11 +46,11 @@ class PrefixTree:
         # TODO
         current = self.root
 
-        for letter in string:
-            if current.has_child(letter):
+        for character in string:
+            if not current.has_child(character):
                 return False
             else:
-                current = current.get_child[letter]
+                current = current.children[character]
         
         if current.terminal == True:
             return True
@@ -62,15 +62,14 @@ class PrefixTree:
         # TODO
         # starting at root node
         current = self.root
-        # split word into letters
-        for letter in string:
-            if current.has_child(letter) == False:
-                # for each letter not in trie, create new node
-                create_node = PrefixTreeNode(letter)
-                current.add_child(letter, create_node)
-                # iterate through letters[index]
+        # split word into characters
+        for character in string:
+            if not current.has_child(character):
+                # for each character not in trie, create new node
+                create_node = PrefixTreeNode(character)
+                current.add_child(character, create_node)
                 self.size += 1
-            current = current.get_child[letter]
+            current = current.children[character]
             # when complete call terminal
         current.terminal = True
 
@@ -88,9 +87,9 @@ class PrefixTree:
         # Instantiate depth
         depth = 0
         # Loop string and depth counts node.children
-        for letter in string:
-            if letter in node.children:
-                node = node.children[letter]
+        for character in string:
+            if character in node.children:
+                node = node.children[character]
                 depth += 1
             else:
                 return None, None
